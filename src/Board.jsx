@@ -3,11 +3,15 @@ import React, {Component} from 'react';
 import Square from './Square';
 
 export default class Board extends Component {
+  clickHandler = (i) => (event) => {
+    this.props.onClick(i);
+  }
+
   renderSquare(i) {
     return (
       <Square
         value={this.props.squares[i]}
-        onClick={() => this.props.onClick(i)}
+        onClick={this.clickHandler(i)}
       />
     );
   }
